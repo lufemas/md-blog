@@ -54,7 +54,7 @@ $header.innerText =  currArticle.content
 
 
 
-loadFile('./README.md',(text)=> {
+loadFile('README.md',(text)=> {
   indexReadmeStr = text.split('\n')
   console.log('as', indexReadmeStr)
 
