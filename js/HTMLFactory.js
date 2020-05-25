@@ -6,6 +6,6 @@ function createNavBar(aArr,id = '',className = ''){
     debugLog('List Arrays: ')
     debugLog(liArr)
 
-    return `<nav id="${id}" class="${className}">` + liArr + `</nav>` 
+    return `<ul id="${id}" class="${className}">` + liArr + `</ul>` 
 
 }

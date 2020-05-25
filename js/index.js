@@ -14,6 +14,35 @@ const $tagsList = $.getElementById(`tags-list`)
 $header.innerHTML = "Not working"
 
 
+
+// const issueCount = 57
+
+const repoSourceName = 'ohmyzsh/ohmyzsh'
+// const repoSourceName = 'showdownjs/showdown'
+// const repoSourceName = 'lufemas/md-blog'
+let currPage = 0
+let artPerPage = 10
+let articles = []
+
+let indexReadmeStr = []
+
+function authenticate(){
+  console.log( 'Authentication:\n',
+  fetch("https://api.github.com", {
+    headers: {
+      Authorization: "Basic bHVmZW1hcw=="
+    }
+  }).then( (res) => {
+    console.log(res)
+    loadArticleLists(0,artPerPage)
+    loadTags()
+  })
+  ) 
+}
+
+authenticate()
+
+
 let currArticle = {
   content: ''
 }
@@ -23,7 +52,7 @@ console.log(currArticle)
 
 $header.innerText =  currArticle.content
 
-let indexReadmeStr = []
+
 
 loadFile('../README.md',(text)=> {
   indexReadmeStr = text.split('\n')
@@ -34,13 +63,6 @@ loadFile('../README.md',(text)=> {
 
 
 
-// const issueCount = 57
-
-const repoSourceName = 'showdownjs/showdown'
-// const repoSourceName = 'lufemas/md-blog'
-let currPage = 0
-let artPerPage = 10
-let articles = []
 
 
 loadFile('https://api.github.com/repos/' + repoSourceName, ( res )=>{
@@ -48,8 +70,7 @@ loadFile('https://api.github.com/repos/' + repoSourceName, ( res )=>{
     handlePagesSelection(5)
 })
 
-loadArticleLists(0,artPerPage)
-loadTags()
+
 
 // https://developer.github.com/v3/#pagination
 
@@ -75,6 +96,7 @@ function loadArticleLists(page, perPage, filter = ''){
   })
   
 }
+
 
 
 function loadTags(){

@@ -1,11 +1,44 @@
+/*  HEADER --------------------------------------------------------------- */
+
+/* MAIN-NAV-BAR -------------------------------- */
+
 #main-nav-bar{
     display: flex;
+    list-style: none;
+    justify-content: right;
+    box-shadow: rgba(0, 0, 0, 0.644) .1rem 0.1rem .25rem .1rem ;
+    padding-right: 1rem ;
+
 }
+
+#main-nav-bar li{
+    display: inline-block;
+    height: 100%;
+    margin: 0;
+}
+
+#main-nav-bar li a{
+    display: inline-block;
+    height: 100%;
+    margin: 0;
+    padding: 1rem;
+    text-decoration: none;
+    color: #222;
+}
+
+#main-nav-bar li a:hover{
+    background-color: #ddd;
+}    
+
+/*  BLOG -------------------------------------------------------------------------- */
+
 
 .blog{
     width: 100%;
     display: flex;
 }
+
+/* LEFT COLUMN -------------------------------- */
 
 #tags-filter{
     display: block;
@@ -22,6 +55,7 @@
 /* ARTICLES LIST -------------------------------- */
 
 .articles-list{
+    list-style: none;
 }
 
 .articles-list li{
@@ -42,7 +76,8 @@
     margin: 1rem;
     padding: 1rem;
     border-radius: .5rem;
-    background-color: aquamarine;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.644) .1rem 0.1rem .25rem .1rem;
 
 }
 
@@ -92,10 +127,12 @@
     display: inline-block;
     background-color: mediumturquoise;
     padding: .25rem 1.5rem;
+    margin: .5rem;
     border-radius: .5rem;
+    box-shadow: rgba(0, 0, 0, 0.644) .15rem .15rem .15rem;
 }
 
 #tags-list li:hover{
     cursor: pointer;
-    
+
 }

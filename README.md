@@ -1,7 +1,8 @@
 # md-blog
 
 <!-- {nav-bar} -->
-[Articles](./articles/001_Welcome-Article/page.md) •
+[Home](./index.html) •
+[Articles](./index.html) •
 [Tutorials](https://www.google.com) •
 [Links](https://www.google.com) •
 [Contact](https://www.google.com) •
