@@ -8,18 +8,31 @@
 		<meta name="author" content="lufemas">
 		<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 		<link rel="stylesheet" href="css/index.css">
 	</head>
 	<body>
 
 		<div id="test"></div>
+		
+		<div id="content"></div>
 
+		<nav class='page-nav'>
+			<span>Page: </span>
+			<select id="page-selection" name="page-selection" id="">
+
+			</select>
+
+		</nav>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
 
 		<script src="js/customDebugger.js"></script>
+		<script type="text/javascript" src="js/Article.js"></script>
+		<script src="js/getGitHub.js"></script>
 		<script src="js/HTMLFactory.js"></script>
 		<script src="js/stringHandler.js"></script>
 		<script src="js/fileHandler.js"></script>
 		<script src="js/index.js"></script>
-		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/<version tag>/showdown.min.js"></script> -->
 	</body>
 </html>

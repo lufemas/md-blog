@@ -1,4 +1,4 @@
-const DEBUG_LOG = true
+const DEBUG_LOG = false
 
 
 function debugLog( ...args){

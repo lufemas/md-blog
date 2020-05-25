@@ -1,0 +1,57 @@
+.articles-list{
+}
+
+.articles-list li{
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: rgb(99, 221, 181);
+}
+
+.articles-list li:hover{
+    cursor: pointer;
+    background-color: aquamarine;
+}
+
+
+.article{
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: aquamarine;
+
+}
+
+.article h3 {
+    margin-bottom: 0rem;
+}
+
+.article .author {
+    font-weight: bold;
+    margin: 0 1rem 0 0;
+}
+
+.article .created-at {
+    font-style: italic;
+    margin: 0 1rem 0 0;
+}
+
+.article .article-body{
+
+    margin: 3rem 1rem;
+}
+
+.article p{
+    margin: 0;
+}
+
+.article img{
+    margin: 1rem 0;
+    box-shadow: rgba(0, 0, 0, 0.651) .25rem .25rem .12rem ;
+}
+
+
+.page-nav{
+    margin: 1rem;
+    text-align: right;
+}
