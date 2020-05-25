@@ -3,13 +3,15 @@
 
 
 const $ = document
-const $Test = $.getElementById(`test`)
+const $header = $.getElementById(`header`)
 const $content = $.getElementById(`content`)
 const $pageNav = $.getElementById(`page-nav`)
 const $pageSelection = $.getElementById(`page-selection`)
+const $tagsFilter = $.getElementById(`tags-filter`)
+const $tagsList = $.getElementById(`tags-list`)
 
 
-$Test.innerHTML = "Not working"
+$header.innerHTML = "Not working"
 
 
 let currArticle = {
@@ -19,7 +21,7 @@ let currArticle = {
 
 console.log(currArticle)
 
-$Test.innerText =  currArticle.content
+$header.innerText =  currArticle.content
 
 let indexReadmeStr = []
 
@@ -27,7 +29,7 @@ loadFile('../README.md',(text)=> {
   indexReadmeStr = text.split('\n')
   console.log('as', indexReadmeStr)
 
-  $Test.innerHTML = createNavLinks(text,`main-nav-bar`,`main-nav-bar`)
+  $header.innerHTML = createNavLinks(text,`main-nav-bar`,`main-nav-bar`)
 })
 
 
@@ -47,13 +49,15 @@ loadFile('https://api.github.com/repos/' + repoSourceName, ( res )=>{
 })
 
 loadArticleLists(0,artPerPage)
-
+loadTags()
 
 // https://developer.github.com/v3/#pagination
 
-function loadArticleLists(page, perPage){
+function loadArticleLists(page, perPage, filter = ''){
  
-  loadFile('https://api.github.com/repos/'+ repoSourceName +'/issues?page='+page+'&per_page='+perPage, ( res )=>{
+  // https://api.github.com/repos/showdownjs/showdown/issues?page='+page+'&per_page='+perPage
+  // https://api.github.com/repos/showdownjs/showdown/issues?labels=bug&page=1&per_page=1
+  loadFile('https://api.github.com/repos/'+ repoSourceName +'/issues?'+ filter +'page='+page+'&per_page='+perPage, ( res )=>{
     const issuesArr = JSON.parse(res)
   
     let issuesCount = issuesArr.length
@@ -70,6 +74,34 @@ function loadArticleLists(page, perPage){
   
   })
   
+}
+
+
+function loadTags(){
+ 
+  // https://api.github.com/repos/showdownjs/showdown/issues/labels
+  loadFile('https://api.github.com/repos/'+ repoSourceName +'/labels', ( res )=>{
+    const labelsArr = JSON.parse(res)
+  
+    let labelsCount = labelsArr.length
+    
+
+    labelsArr.forEach(element => {
+       
+      const $tagLi = $.createElement('li')
+
+      $tagLi.innerText = element.name
+      $tagLi.style.backgroundColor = `#${element.color}`
+      
+      $tagLi.addEventListener('click', (e)=>{
+        loadArticleLists(0,artPerPage, `labels=${element.name}&`)
+      })
+
+      $tagsList.appendChild($tagLi)
+  })
+  
+})
+
 }
 
 

@@ -1,5 +1,5 @@
 class Article{
-    constructor(title,date,author, body, tags){
+    constructor(title,date,author, body, tags,number){
         this.title = title
         this.date = date
         this.author = author
@@ -10,6 +10,7 @@ class Article{
         
         })()
         this.tags = tags
+        this.number = number
 
         this.$title = document.createElement('h3')
         this.$title.innerText = this.title
@@ -60,7 +61,7 @@ class Article{
             tags.push(element.name)
           });
 
-        return new Article(arr.title, arr.created_at, arr.user.login, arr.body, tags)
+        return new Article(arr.title, arr.created_at, arr.user.login, arr.body, tags, arr.number)
     }
 
 }
